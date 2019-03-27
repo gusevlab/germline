@@ -1,0 +1,18 @@
+---------------------------------------------------------------- 
+ Welcome to GERMLINE, a tool for detecting long segments shared
+ by descent between pairs of individuals in near-linear time.
+
+ For more details, please see the paper [ PMID: 18971310 ]
+ or the web-site [ http://www.cs.columbia.edu/~gusev/germline/ ]
+
+ GERMLINE was coded by Alexander Gusev and collaborators in 
+ Itsik Pe'er's Computational Biology Lab at Columbia University
+---------------------------------------------------------------- 
+./germline
+---------------------------------------------------------------- 
+Minimum match length:                             3 cM
+Allowed mismatching bits:                         4 1
+Word size:                                        128
+Target region:                                    all
+Total IBD segments:                               9
+Total runtime (sec):                              1
