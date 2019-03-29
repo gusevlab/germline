@@ -1,7 +1,7 @@
 // MatchesBuilder.h: builds matches from individuals
 
 #ifndef MATCHESBUILDER_H
-#define MATCHESBUILDERs_H
+#define MATCHESBUILDER_H
 
 #include "BasicDefinitions.h"
 #include "Individuals.h"
@@ -44,8 +44,8 @@ private:
 	// matchMarkerSet(): builds matches for individuals considering markers in marker set.
 	// Precondition: individualsP points to a valid Individuals object and matchesP
 	//  points to a valid Matches object.
-	// Postcondition: matchesP points to a valid Matches object containing all 
-	//   matches for individuals considering markers in marker set markerSetPosition, 
+	// Postcondition: matchesP points to a valid Matches object containing all
+	//   matches for individuals considering markers in marker set markerSetPosition,
 	//   extending existing matches whenever possible.
 	void matchMarkerSet();
 	void readMarkerSet();
@@ -59,8 +59,8 @@ private:
 	PolymorphicIndividualsExtractor* pieP;
 
 	unsigned int ms_start, ms_end;
-}; 
+};
 
-#endif 
+#endif
 
 // end MatchesBuilder.h
