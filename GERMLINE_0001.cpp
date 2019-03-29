@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 	string params = argv[0];
 
 	bool bad_param = false;
-	for(int i=1;i<argc;i++){
+	for (int i = 1; i < argc; i++) {
 		params += " " + string(argv[i]);
 		if( strncmp(argv[i], "-min_m", strlen("-min_m")) == 0 && i < argc-1)				MIN_MATCH_LEN = atof(argv[++i]);
 		else if( strncmp(argv[i], "-err_hom", strlen("-max_err")) == 0 && i < argc-1)		{ MAX_ERR_HOM = atoi(argv[++i]); }
@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
 		cerr << "ERROR: cannot execute with both -haploid and -homoz/-homoz-only flags active" << endl << endl;
 		bad_param = true;
 	}
-	
+
 	if(bad_param)
 	{
 		cerr << "usage: " << argv[0] << "<flags (optional)> -input [ped file] [map file] -output [out file]" << endl
@@ -86,14 +86,14 @@ int main(int argc, char* argv[])
 		<< '\t' << "-to_snp" << '\t' << "End SNP (rsID)." << endl
 		<< '\t' << "-haps" << '\t' << "Print the resolved haplotypes in a seperate HAPS file." << endl
 		<< '\t' << "-map [file]" << '\t' << "Genetic distance map in PLINK map format." << endl
-		<< '\t' << "-distrib [file]" << '\t' << "Only print the distribution of segment lengths, using breaks listed in file." << endl		
+		<< '\t' << "-distrib [file]" << '\t' << "Only print the distribution of segment lengths, using breaks listed in file." << endl
 		<< '\t' << "-bits" << '\t' << "Slice size." << endl
 		<< '\t' << "-homoz" << '\t' << "Allow self matches (homozygosity)" << endl
 		<< '\t' << "-homoz-only" << '\t' << "Look for autozygous/homozygous segments only, does not detect IBD" << endl
 		<< '\t' << "-haploid" << '\t' << "Treat input individual as two fully phased chromosomes with no recombination\n\t\toutput IDs with 0/1 suffix for chromosome destinction" << endl
 		<< '\t' << "-h_extend" << '\t' << "Extend from seeds if *haplotypes* match" << endl
 		<< '\t' << "-w_extend" << '\t' << "Extend, one marker at a time, beyong the boundaries of a found match" << endl;
-		return 0;
+		return 1;
 	}
 
 	if( rs_range[0] != "" && rs_range[1] != "" )
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 	{
 		ALL_SNPS.loadGeneticDistanceMap( map );
 	}
-	
+
 	if(DISTRIB_OUT) {
 		// load the histogram
        	ifstream s_map( hist.c_str() );
@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
 
 	GERMLINE germline;
     germline.mine( params );
-    return 1;
+    return 0;
 }
 
 
