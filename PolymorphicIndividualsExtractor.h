@@ -1,4 +1,4 @@
-// PolymorphicIndividualsExtractor.h: Abstract base class to extract individuals 
+// PolymorphicIndividualsExtractor.h: Abstract base class to extract individuals
 //   from various file formats
 
 #ifndef POLYMORPHICINDIVIDUALSEXTRACTOR_H
@@ -17,7 +17,7 @@ public:
 
 	// PolymorphicIndividualsExtractor(): default constructor
 	// Precondition: None.
-	// Postcondition: individualsP has been set to NULL, 
+	// Postcondition: individualsP has been set to NULL,
 	//  numberOfMarkers has been set to 0, and names for
 	//  CSV files and INFO file have been been obtained from
 	//  user.
@@ -25,6 +25,8 @@ public:
 	//  would be a delay before prompting for the input file
 	//  which depends on the derived class for validation.
 	PolymorphicIndividualsExtractor();
+
+	virtual ~PolymorphicIndividualsExtractor();
 
 	// getInput(): virtual function to extract input
 	// Precondition: None.

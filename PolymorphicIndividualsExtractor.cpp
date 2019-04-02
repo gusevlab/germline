@@ -1,4 +1,4 @@
-// PolymorphicIndividualsExtractor.cpp: Abstract base class to extract individuals 
+// PolymorphicIndividualsExtractor.cpp: Abstract base class to extract individuals
 //   from various file formats
 
 #include "PolymorphicIndividualsExtractor.h"
@@ -12,6 +12,9 @@ using namespace std;
 PolymorphicIndividualsExtractor::PolymorphicIndividualsExtractor()
 : individualsP(NULL), valid_flag(true)
 {}
+
+PolymorphicIndividualsExtractor::~PolymorphicIndividualsExtractor() {
+}
 
 void PolymorphicIndividualsExtractor::setPhased(bool p)
 {

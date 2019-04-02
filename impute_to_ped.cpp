@@ -9,12 +9,12 @@
 
 using namespace std;
 
-int main (int argc, char* argv[]) 
+int main (int argc, char* argv[])
 {
 	string line, discard;
 	if(argc < 3){
 		cerr << "Usage: " << argv[0] << " <haps file> <sample file> <output>" << endl;
-		return 0;
+		return 1;
 	}
 	ifstream file_haps(argv[1]);
 	ifstream file_samp(argv[2]);
@@ -37,10 +37,10 @@ int main (int argc, char* argv[])
 		fam.push_back( map_field[0] + " " + map_field[1] + " 0 0 0 0" );
 	}
 	file_samp.close();
-	
+
 	string * seq = new string[ fam.size() ];
 	cout << fam.size() << " samples" << endl;
-	
+
 	// read all data
 	int snp_ctr = 0;
 	char al[2] , inp;
@@ -61,7 +61,7 @@ int main (int argc, char* argv[])
 			cur_al = string( 1 , al[ inp - '0' ] );
 			if(snp_ctr == 0) seq[i] = cur_al;
 			else seq[i] += " " + cur_al;
-			
+
 			ss >> inp;
 			cur_al = string( 1 , al[ inp - '0' ] );
 			seq[i] += " " + cur_al;
@@ -70,10 +70,9 @@ int main (int argc, char* argv[])
 	}
 	file_haps.close();
 	file_map.close();
-	
+
 	// print all markers
-	int id = 0;
-	for(int i=0;i< fam.size() ;i++) file_ped << fam[i] << " " << seq[i] << endl;
+	for (int i = 0; i < fam.size(); i++) file_ped << fam[i] << " " << seq[i] << endl;
 	file_ped.close();
-	return 1;
+	return 0;
 }
