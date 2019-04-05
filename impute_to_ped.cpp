@@ -18,7 +18,7 @@ int main (int argc, char* argv[])
 	}
 	ifstream file_haps(argv[1]);
 	ifstream file_samp(argv[2]);
-	if(!file_haps || !file_samp) { cerr << "file could not be opened" << endl; return 0; }
+	if(!file_haps || !file_samp) { cerr << "file could not be opened" << endl; return 1; }
 
 	string pre = argv[3];
 	ofstream file_ped( (pre + ".ped").c_str() );
